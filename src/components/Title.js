@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
+import Signup from './Signup';
 
 export default class Title extends Component {
 	render() {
 		return (
+            
 			<div>
-				<h1>What's on my bucket list?</h1>
+                <h1>What's on my bucket list?</h1>
 						<div>
 						  <i>Everywhere.</i>
 						  <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
@@ -13,7 +15,8 @@ export default class Title extends Component {
 							  dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
 							  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
 							  anim id est laborum."</p>
-          </div>
+                        </div>
+                    <Signup />
 			</div>
 		);
 	}
