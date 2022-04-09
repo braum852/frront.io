@@ -1,0 +1,7 @@
+#fcontainer {
+    display: inline-block;
+    border-width: auto;
+    border-top: auto;
+    border-style: groove;
+    background-color: plum;
+}
