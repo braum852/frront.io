@@ -1,15 +1,45 @@
 import React, {Component} from 'react';
-import { Stack } from "react-bootstrap"
-import Container from "react-bootstrap/Container"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { AppProvider } from './expenses/AppContext';
+import Budget from './expenses/Budget';
+import ExpenseTotal from './expenses/ExpenseTotal';
+import ExpenseList from './expenses/ExpenseList';
+import AddExpenseForm from './expenses/AddExpenseForm';
+import Remaining from './expenses/Remaining';
 
 export default class Expenses extends Component {
+
 	render() {
 		return (
-			<Container>
-				<Stack direction="horizontal" gap="2" className="mb-4">
-				<h1 className="me-auto" >Expenses</h1>
-				</Stack>
-			</Container>
+			<AppProvider>
+			<div className='container'>
+				<h1 className='mt-3'>My Budget Planner</h1><br></br>
+				<h3><i>Did you hear about that constipated accountant? He used a pencil to budget</i></h3><br></br>
+				<div className='row mt-3'>
+					<div className='col-sm'>
+						<Budget />
+					</div>
+					<div className='col-sm'>
+						<Remaining />
+					</div>
+					<div className='col-sm'>
+						<ExpenseTotal />
+					</div>
+				</div>
+				<h3 className='mt-3'>Expenses</h3>
+				<div className='row '>
+					<div className='col-sm'>
+						<ExpenseList />
+					</div>
+				</div>
+				<h3 className='mt-3'>Add Expense</h3>
+				<div className='row mt-3'>
+					<div className='col-sm'>
+						<AddExpenseForm />
+					</div>
+				</div>
+			</div>
+		</AppProvider>
 		);
 	}
 }
