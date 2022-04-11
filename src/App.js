@@ -11,16 +11,23 @@ import Footer from './components/Footer';
 function App() {
   return (
     <div className="App">
-      <ResponsiveAppBar />
-      <Routes>
-        <Route path='/' element={<Title/>}/>
-          <Route path='Itinerary' element={<Itinerary/>}/>
-          <Route path='Expenses' element={<Expenses/>}/>
-          <Route path='Login' element={<Login/>}/>
-      </Routes>
-      <header className="App-header">
-      </header>
-      <Footer/>
+       <div id="page-container">
+          <div id="content-wrap">
+            <ResponsiveAppBar />
+              <Routes>
+                <Route path='/' element={<Title/>}/>
+                  <Route path='Itinerary' element={<Itinerary/>}/>
+                    <Route path='Expenses' element={<Expenses/>}/>
+                    <Route path='Login' element={<Login/>}/>
+                    <Route exact path='Signup' element={<Title/>}/>
+                </Routes>
+              <header className="App-header">
+              </header>
+           </div>
+              <div id='foot'>
+                <Footer/>
+              </div>
+         </div>
     </div>
   );
 }

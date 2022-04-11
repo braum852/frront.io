@@ -13,8 +13,8 @@ export default class Expenses extends Component {
 		return (
 			<AppProvider>
 			<div className='container'>
-				<h1 className='mt-3'>My Budget Planner</h1><br></br>
-				<h3><i>Did you hear about that constipated accountant? He used a pencil to budget</i></h3><br></br>
+				<h1 className='mt-5'><b> Your Budget Planner </b></h1><br></br>
+				<h3 style={{color:"plum"}}><i>Did you hear about that constipated accountant? He used a pencil to budget</i></h3><br></br>
 				<div className='row mt-3'>
 					<div className='col-sm'>
 						<Budget />

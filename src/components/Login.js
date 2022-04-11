@@ -34,8 +34,33 @@ const Form = ({ handleClose }) => {
     handleClose();
   };
 
+  // login = () => {
+  //   fetch("http://localhost:3000/api/v1/login", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(this.state)
+  //   })
+  //     .then(res => {
+  //       if (res.ok) {
+  //         return res.json();
+  //       } else {
+  //         throw new Error("Invalid Login");
+  //       }
+  //     })
+  //     .then(data => {
+  //       localStorage.setItem("accessToken", data.jwt);
+  //       localStorage.setItem("user_id", data.user.id);
+  //       localStorage.setItem("username", data.user.username);
+  //       this.props.history.push("/trips");
+  //     })
+  //     .catch(error => {
+  //       alert("Invalid Login", error);
+  //     });
+  // };
+
   return (
     <div>
+      <br></br>
     <Typography variant="h3" color="black">Welcome!</Typography>
     <form className={classes.root} onSubmit={handleSubmit}>
       <legend><h1>Enter your details below</h1></legend>
