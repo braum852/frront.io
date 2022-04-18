@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 import { Typography } from '@mui/material';
 // import Card from '@mui/material/Card';
 // import CardContent from '@mui/material/CardContent';
-import './Signup.css' 
+import './Signup.css'
 
 export default function Signup() {
   const [firstname, setFirstname] = useState('');
@@ -49,7 +49,7 @@ export default function Signup() {
       password
     };
 
-    fetch('http://localhost:3000//api/v1/users', {
+    fetch('http://localhost:3000/api/v1/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -64,7 +64,9 @@ export default function Signup() {
           lastname: user.lastname
         }
       }),
-    })
+    },
+    { withCredentials: true }
+    )
       .then((response) => response.json())
       .then((response) => {
         if (response.status === 'created') {
@@ -88,7 +90,7 @@ export default function Signup() {
           <div className="please-log-in">
             <p>{errorMessage}</p>
           </div>
-          <h1 className="fancy">Welcome to Mobile Legends!</h1><br></br>
+          <h1 className="fancy">It's TIME... to TRAVELLER!</h1><br></br>
 						<div>
 						  {/* <i className={classes.root}>Whayt's on my bucket list? Everywhere...</i> */}
               <p className={classes.root}><i>"I would totally give up travelling, but I'm not a quitter"</i></p>

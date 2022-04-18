@@ -24,17 +24,26 @@ const ResponsiveAppBar = () => {
     setAnchorElNav(null);
   };
 
+  // const logOut = () => {
+  //   // this.authToken = null;
+  //   // this.user = null;
+  //   setUser({})
+
+  //   localStorage.token = '';
+  // }
+
   return (
     <AppBar position="static" style={{ background: 'aqua' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
             variant="h6"
+            color="green"
             noWrap
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            Your Planner
+            Your Traveller
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -98,6 +107,7 @@ const ResponsiveAppBar = () => {
               </Button>
             ))}
           </Box>
+          <Button color="secondary">Logout</Button>
         </Toolbar>
       </Container>
     </AppBar>

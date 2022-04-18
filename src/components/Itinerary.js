@@ -7,8 +7,9 @@ import './Itinerary.css'
 export default class Itinerary extends Component {
 
 	state = {
-		Login: false,
+		user: ''
 	  };
+
 	  
 	render() {
 		return (			

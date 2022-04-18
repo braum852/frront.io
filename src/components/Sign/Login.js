@@ -49,23 +49,19 @@ export default function Login() {
                 username: user.username,
                 password: user.password
             }
-        })
+        },
+        { withCredentials: true })
     })
-    .then(response => response.json())
-    .then(response => {console.log(response.jwt)
-        console.log(response.user.username)
-        if (response.jwt){
-        localStorage.setItem('jwt', response.jwt)
-        setUsername(response.user.username)
-        
-        // setLoginUsername('');
-        // setLoginPassword('');
-        }
-        else {
-            console.log("Try another")
-        }
+    .then(response => {
+      if (response.data.logged_in) {
+        this.props.handleSuccessfulAuth(response.data);
+      }
     })
-  }
+    .catch(error => {
+      console.log("login error", error);
+    });
+  event.preventDefault();
+}
 
   return (
         <div>
