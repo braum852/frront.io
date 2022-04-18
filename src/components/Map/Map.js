@@ -12,30 +12,64 @@ import {
   import { FaLocationArrow, FaTimes } from 'react-icons/fa'
   
   import {
-    useJsApiLoader,
+    useJsApiLoader, //Provides hook with a variable isLoaded - whether map loaded or not
     GoogleMap,
     Marker,
     Autocomplete,
     DirectionsRenderer,
   } from '@react-google-maps/api'
-  import { useRef, useState } from 'react'
+  import React, { useRef, useState } from 'react'
+
+  // import useGeolocation from 'react-hook-geolocation'
+
+  // const ComponentWithGeolocation = () => {
+  //   const geolocation = useGeolocation()
   
+  //   return !geolocation.error
+  //     ? (
+  //       <ul>
+  //         <li>Latitude:          {geolocation.latitude}</li>
+  //         <li>Longitude:         {geolocation.longitude}</li>
+  //         <li>Location accuracy: {geolocation.accuracy}</li>
+  //         <li>Altitude:          {geolocation.altitude}</li>
+  //         <li>Altitude accuracy: {geolocation.altitudeAccuracy}</li>
+  //         <li>Heading:           {geolocation.heading}</li>
+  //         <li>Speed:             {geolocation.speed}</li>
+  //         <li>Timestamp:         {geolocation.timestamp}</li>
+  //       </ul>
+  //     )
+  //     : (
+  //       <p>No geolocation, sorry.</p>
+  //     )
+  // }
+  
+  // function Loc() {
+  //   const [latitude, setLatitude] = React.useState('');
+  //   const [longtitude, setLongtitude] = React.useState('');
+  //   React.useEffect(() => {
+  //     navigator.geolocation.getCurrentPosition((position) => {
+  //       setLatitude(position.coords.latitude)
+  //       setLongtitude(position.coords.longtitude)
+  //     })
+  //   })
+  // }
+
   const center = { lat: -27.47031, lng: 153.01708 }
-  
+
   function Map() {
-    const { isLoaded } = useJsApiLoader({
+    const { isLoaded } = useJsApiLoader({ //Provides hook with a variable isLoaded - whether map loaded or not
+      GoogleMap,
       googleMapsApiKey: "AIzaSyCEImQf7-c8Twzgk6ys1TrISr5wWbWTLTo",
       libraries: ['places'],
     })
   
-    const [map, setMap] = useState(/** @type google.maps.Map */ (null))
+    const [map, setMap] = useState(null)
     const [directionsResponse, setDirectionsResponse] = useState(null)
     const [distance, setDistance] = useState('')
     const [duration, setDuration] = useState('')
   
-    /** @type React.MutableRefObject<HTMLInputElement> */
+    
     const originRef = useRef()
-    /** @type React.MutableRefObject<HTMLInputElement> */
     const destinationRef = useRef()
   
     if (!isLoaded) {
@@ -68,7 +102,7 @@ import {
     }
   
     return (
-      <div>
+      <div className='MapContainer'>
       <br></br>
       <br></br>
       <Flex
@@ -79,7 +113,7 @@ import {
         w='100vw'
       >
  
-        <Box position='static' height='60%' width='60%'>
+        <Box position='static' height='70%' width='70%'>
             
         <Box
           p={4}
@@ -87,7 +121,6 @@ import {
           m={4}
           bgColor='paleturquoise'
           shadow='base'
-          minW='container.md'
           zIndex='1'
         >
           <HStack spacing={2} justifyContent='space-between'>
@@ -126,7 +159,7 @@ import {
               isRound
               onClick={() => {
                 map.panTo(center)
-                map.setZoom(15)
+                map.setZoom(0)
               }}
             />
           </HStack>
