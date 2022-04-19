@@ -67,6 +67,8 @@ import {
     const [directionsResponse, setDirectionsResponse] = useState(null)
     const [distance, setDistance] = useState('')
     const [duration, setDuration] = useState('')
+    const [distanceF, setDistanceF] = useState('')
+    const [durationF, setDurationF] = useState('')
   
     
     const originRef = useRef()
@@ -102,10 +104,26 @@ import {
         destination: destinationRef.current.value,
         // eslint-disable-next-line no-undef
         travelMode: google.maps.TravelMode.DRIVING,
+        // eslint-disable-next-line no-undef
+        // travelMode: google.maps.TravelMode.WALKING
       })
-      setDirectionsResponse(results)
+      const resultsF = await directionsService.route({
+        origin: originRef.current.value,
+        destination: destinationRef.current.value,
+        // eslint-disable-next-line no-undef
+        travelMode: google.maps.TravelMode.WALKING,
+        // eslint-disable-next-line no-undef
+        // travelMode: google.maps.TravelMode.WALKING
+      })
+// DRIVING (Default) indicates standard driving directions using the road network.
+// BICYCLING requests bicycling directions via bicycle paths & preferred streets.
+// TRANSIT requests directions via public transit routes.
+// WALKING requests walking directions via pedestrian paths & sidewalks.
+      setDirectionsResponse(results, resultsF)
       setDistance(results.routes[0].legs[0].distance.text)
       setDuration(results.routes[0].legs[0].duration.text)
+      setDistanceF(resultsF.routes[0].legs[0].distance.text)
+      setDurationF(resultsF.routes[0].legs[0].duration.text)
     }
 
     // Func calculateRoute should only be called when it is not empty
@@ -171,8 +189,10 @@ import {
             </ButtonGroup>
           </HStack>
           <HStack spacing={4} mt={4} justifyContent='space-between'>
-            <Text>Distance: {distance} </Text>
-            <Text>Duration: {duration} </Text>
+            <Text>Distance by CAR: {distance} </Text>
+            <Text>Duration by CAR: {duration} </Text>
+            <Text>Distance by FOOT: {distanceF} </Text>
+            <Text>Duration by FOOT: {durationF} </Text>
             <IconButton
               aria-label='center back'
               icon={<FaLocationArrow />}
