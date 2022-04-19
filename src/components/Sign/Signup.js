@@ -152,7 +152,7 @@ export default function Signup(props) {
           </form>
           {/* </CardContent>
               </Card> */}
-              <h1>Hello, our status: {props.loggedInStatus}</h1>; 
+              {/* <h1>Hello, our status: {props.loggedInStatus}</h1>;  */}
         </div>
       )}
       <br />

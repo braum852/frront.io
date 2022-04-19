@@ -78,20 +78,6 @@ import {
       return <SkeletonText />
     }
   
-    // function calcRoute() {
-    //   var start = document.getElementById('start').value;
-    //   var end = document.getElementById('end').value;
-    //   var request = {
-    //     origin:start,
-    //     destination:end,
-    //     travelMode: 'DRIVING'
-    //   };
-    //   directionsService.route(request, function(response, status) {
-    //     if (status == 'OK') {
-    //       directionsRenderer.setDirections(response);
-    //     }
-    //   });
-    // }
 
     async function calculateRoute() {
       if (originRef.current.value === '' || destinationRef.current.value === '') {
@@ -104,9 +90,33 @@ import {
         destination: destinationRef.current.value,
         // eslint-disable-next-line no-undef
         travelMode: google.maps.TravelMode.DRIVING,
-        // eslint-disable-next-line no-undef
-        // travelMode: google.maps.TravelMode.WALKING
+
       })
+
+// DRIVING (Default) indicates standard driving directions using the road network.
+// BICYCLING requests bicycling directions via bicycle paths & preferred streets.
+// TRANSIT requests directions via public transit routes.
+// WALKING requests walking directions via pedestrian paths & sidewalks.
+      setDirectionsResponse(results)
+      setDistance(results.routes[0].legs[0].distance.text)
+      setDuration(results.routes[0].legs[0].duration.text)
+      // setDistanceF(resultsF.routes[0].legs[0].distance.text)
+      // setDurationF(resultsF.routes[0].legs[0].duration.text)
+    }
+
+    // Func calculateRoute should only be called when it is not empty
+        // Line 83-84 - map shall be loaded by that point, so wont be complete error, want
+    // no directions to be provided if the promise values of origin and destination is empty
+    //ergo use of eslint syntax to:
+    // Disallows the use of undeclared variables unless mentioned in /*global */ comments.
+
+
+    async function calculateRouteF() {
+      if (originRef.current.value === '' || destinationRef.current.value === '') {
+        return
+      }
+      // eslint-disable-next-line no-undef
+      const directionsService = new google.maps.DirectionsService()
       const resultsF = await directionsService.route({
         origin: originRef.current.value,
         destination: destinationRef.current.value,
@@ -119,9 +129,7 @@ import {
 // BICYCLING requests bicycling directions via bicycle paths & preferred streets.
 // TRANSIT requests directions via public transit routes.
 // WALKING requests walking directions via pedestrian paths & sidewalks.
-      setDirectionsResponse(results, resultsF)
-      setDistance(results.routes[0].legs[0].distance.text)
-      setDuration(results.routes[0].legs[0].duration.text)
+      setDirectionsResponse(resultsF)
       setDistanceF(resultsF.routes[0].legs[0].distance.text)
       setDurationF(resultsF.routes[0].legs[0].duration.text)
     }
@@ -135,8 +143,10 @@ import {
       setDirectionsResponse(null)
       setDistance('')
       setDuration('')
-      originRef.current.value = ''
-      destinationRef.current.value = ''
+      setDistanceF('')
+      setDurationF('')
+      // originRef.current.value = ''
+      // destinationRef.current.value = ''
     }
   
     return (
@@ -179,7 +189,10 @@ import {
   
             <ButtonGroup>
               <Button colorScheme='pink' type='submit' onClick={calculateRoute}>
-                Calculate Route
+                Show CAR route
+              </Button>
+              <Button colorScheme='pink' type='submit' onClick={calculateRouteF}>
+              Show FOOT route
               </Button>
               <IconButton
                 aria-label='center back'
@@ -199,7 +212,7 @@ import {
               isRound
               onClick={() => {
                 map.panTo(center)
-                map.setZoom(0)
+                map.setZoom(15)
               }}
             />
           </HStack>

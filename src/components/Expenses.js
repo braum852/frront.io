@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { AppProvider } from './expenses/AppContext';
+import { AppProvider } from './expenses/reducer/AppContext';
 import Budget from './expenses/Budget';
 import ExpenseTotal from './expenses/ExpenseTotal';
 import ExpenseList from './expenses/ExpenseList';
-import AddExpenseForm from './expenses/AddExpenseForm';
+import AddExpenseItem from './expenses/AddExpenseItem';
 import Remaining from './expenses/Remaining';
 import './expenses/Expenses.css'
 
@@ -37,7 +37,7 @@ export default class Expenses extends Component {
 				<h3 className='mt-3'>Add Expense</h3>
 				<div className='row mt-3'>
 					<div className='col-sm'>
-						<AddExpenseForm />
+						<AddExpenseItem />
 					</div>
 				</div>
 			</div>

@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { AppContext } from './AppContext';
+import { AppContext } from './reducer/AppContext';
 import { v4 as uuidv4 } from 'uuid';
 
-const AddExpenseForm = (props) => {
+const AddExpenseItem = (props) => {
 	const { dispatch } = useContext(AppContext);
 
 	const [name, setName] = useState('');
@@ -62,4 +62,4 @@ const AddExpenseForm = (props) => {
 	);
 };
 
-export default AddExpenseForm;
+export default AddExpenseItem;

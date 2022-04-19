@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
-import ExpenseItem from './ExpenseItem';
-import { AppContext } from './AppContext';
+import DeleteExpenseItem from './DeleteExpenseItem';
+import { AppContext } from './reducer/AppContext';
 
 const ExpenseList = () => {
 	const { expenses } = useContext(AppContext);
@@ -28,7 +28,7 @@ const ExpenseList = () => {
 			/>
 			<ul class='list-group mt-3 mb-3'>
 				{filteredExpenses.map((expense) => (
-					<ExpenseItem color='black'
+					<DeleteExpenseItem color='black'
 						id={expense.id}
 						name={expense.name}
 						cost={expense.cost}
