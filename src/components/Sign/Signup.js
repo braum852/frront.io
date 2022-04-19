@@ -8,7 +8,7 @@ import { Typography } from '@mui/material';
 // import CardContent from '@mui/material/CardContent';
 import './Signup.css'
 
-export default function Signup() {
+export default function Signup(props) {
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
   const [username, setUsername] = useState('');
@@ -84,7 +84,7 @@ export default function Signup() {
   return (
     <div>
       {created ? (
-        <Navigate to="/login" />
+        <Navigate replace to="/login" />
       ) : (
         <div>
           <div className="please-log-in">
@@ -152,6 +152,7 @@ export default function Signup() {
           </form>
           {/* </CardContent>
               </Card> */}
+              <h1>Hello, our status: {props.loggedInStatus}</h1>; 
         </div>
       )}
       <br />

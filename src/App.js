@@ -29,24 +29,18 @@ export default function App() {
 
   function checkLoginStatus () {
     axios
-    .get("http://localhost:3001/logged_in", { withCredentials: true })
-    .then(response => {
+    .get("http://localhost:3000/api/v1/logged_in", { withCredentials: true })
+    .then((response) => {
       if (
-        response.data.logged_in &&
-        this.state.loggedInStatus === "NOT_LOGGED_IN"
+        response.logged_in === true &&
+        user.loggedInStatus === "NOT_LOGGED_IN" 
       ) {
-        this.setState({
-          loggedInStatus: "LOGGED_IN",
-          user: response.data.user
-        });
+        setUser({loggedInStatus: "LOGGED_IN", user: response.user})
       } else if (
         !response.data.logged_in &
-        (this.state.loggedInStatus === "LOGGED_IN")
+        (user.loggedInStatus === "LOGGED_IN")
       ) {
-        this.setState({
-          loggedInStatus: "NOT_LOGGED_IN",
-          user: {}
-        });
+        setUser({loggedInStatus: "NOT_LOGGED_IN", user: {} });
       }
     })
     .catch(error => {
@@ -67,8 +61,13 @@ export default function App() {
             <ResponsiveAppBar />
             {/* <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}> */}
               <Routes>
-                <Route path='/' element={<Signup/>}/>
-                    <Route path='Home' element={<Signup/>}/>
+                <Route path={'/'} element={<Signup/>}/>
+                    <Route path={'Home'}
+                    // render={props => (
+                    //   <Signup {...props} loggedInStatus={loggedInStatus}/>
+                    // )}
+                    // />
+                    element={<Signup/>}/>
                     <Route path='Itinerary' element={<Itinerary/>}/>
                     <Route path='Expenses' element={<Expenses/>}/>
                     <Route path='Login' element={<Login/>}/>

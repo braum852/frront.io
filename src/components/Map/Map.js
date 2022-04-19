@@ -76,6 +76,21 @@ import {
       return <SkeletonText />
     }
   
+    // function calcRoute() {
+    //   var start = document.getElementById('start').value;
+    //   var end = document.getElementById('end').value;
+    //   var request = {
+    //     origin:start,
+    //     destination:end,
+    //     travelMode: 'DRIVING'
+    //   };
+    //   directionsService.route(request, function(response, status) {
+    //     if (status == 'OK') {
+    //       directionsRenderer.setDirections(response);
+    //     }
+    //   });
+    // }
+
     async function calculateRoute() {
       if (originRef.current.value === '' || destinationRef.current.value === '') {
         return
@@ -92,6 +107,11 @@ import {
       setDistance(results.routes[0].legs[0].distance.text)
       setDuration(results.routes[0].legs[0].duration.text)
     }
+
+    // Func calculateRoute should only be called when it is not empty
+    // Disallows the use of undeclared variables unless mentioned in /*global */ comments.
+    // Line 83-84 - map shall be loaded by that point, so wont be complete error, want
+    // no directions to be provided if the promise values of origin and destination is empty
   
     function clearRoute() {
       setDirectionsResponse(null)
@@ -169,9 +189,9 @@ import {
             zoom={15}
             mapContainerStyle={{ width: '100%', height: '100%' }}
             options={{
-              zoomControl: false,
-              streetViewControl: false,
-              mapTypeControl: false,
+              zoomControl: true,
+              streetViewControl: true,
+              mapTypeControl: true,
               fullscreenControl: false,
             }}
             onLoad={map => setMap(map)}
