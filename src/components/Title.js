@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Currency from './Currency';
+import Currency from './currency/Currency';
 import axios from 'axios';
 
 // APIKEY = 81336ae3e06b60de326369e3f8927b24
@@ -22,6 +22,8 @@ function App() {
 	function format(number) {
 		return number.toFixed(4);
 	  }
+//To 4 decimal places
+
 	
 	  function handleAmount1Change(amount1) {
 		setAmount2(format(amount1 * rates[currency2] / rates[currency1]));
@@ -47,8 +49,8 @@ function App() {
 		return (
 			<div>
 			  <h1>Currency Exchanger</h1>
-				<Currency onAmountChange={handleAmount1Change} onCurrencyChange={setCurrency1} currencies={Object.keys(rates)} amount={amount1} currency={currency1}/>
-				<Currency onAmountChange={handleAmount2Change} onCurrencyChange={setCurrency2} currencies={Object.keys(rates)} amount={amount2} currency={currency2}/>
+				<Currency onAmountChange={handleAmount1Change} onCurrencyChange={handleCurrency1Change} currencies={Object.keys(rates)} amount={amount1} currency={currency1}/>
+				<Currency onAmountChange={handleAmount2Change} onCurrencyChange={handleCurrency2Change} currencies={Object.keys(rates)} amount={amount2} currency={currency2}/>
 			</div>
 		);
 }
