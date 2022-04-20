@@ -1,8 +1,10 @@
 function Currency(props) {
     return (
         <div className="group">
-            <input type='text' value={1}/>
-            <select></select>
+            <input type='text' value={props.amount}/>
+            <select value={props.currency}>
+                {props.currencies.map((currency => <option value={currency}>{currency}</option>))}
+            </select>
         </div>
     )
 

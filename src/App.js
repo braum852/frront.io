@@ -24,7 +24,7 @@ export default function App() {
                     <Route path='Itinerary' element={<Itinerary/>}/>
                     <Route path='Expenses' element={<Expenses/>}/>
                     <Route path='SignUp' element={<Signup/>}/>
-                    <Route path='Testing' element={<Title/>}/>
+                    <Route path='Currency' element={<Title/>}/>
                 </Routes>
                 {/* </Fragment>
               </Router> */}

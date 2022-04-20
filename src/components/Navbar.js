@@ -12,7 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link } from "react-router-dom"
 import LogoutButton from './Sign/LogoutButton';
 
-const pages = ['Home', 'Itinerary', 'Expenses', 'Testing'];
+const pages = ['Home', 'Itinerary', 'Expenses', 'Currency'];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);

@@ -8,8 +8,8 @@ function App() {
 		return (
 			<div>
 			  <h1>Currency Exchanger</h1>
-				<Currency/>
-				<Currency/>
+				<Currency currencies={[]}/>
+				<Currency currencies={[]}/>
 			</div>
 		);
 }
