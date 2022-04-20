@@ -1,12 +1,17 @@
-import React, {Component} from 'react';
+import React from 'react'
+import Currency from './Currency';
 
 
-export default class Title extends Component {
-	render() {
-		return (           
+function App() {
+
+	
+		return (
 			<div>
-                    
+			  <h1>Currency Exchanger</h1>
+				<Currency/>
+				<Currency/>
 			</div>
 		);
-	}
 }
+
+export default App;

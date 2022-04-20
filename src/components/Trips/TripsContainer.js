@@ -89,7 +89,7 @@ class TripsContainer extends Component {
                   <input className="taskCheckbox" type="checkbox" 
                     checked={trip.done}
                     onChange={(e) => this.updateTrip(e, trip.id)} />              
-                  <label className="taskLabel">{trip.title}</label>
+                  <label className="taskLabel">{trip.title}, Date Added On: {trip.date_added}</label>
                   <span className="deleteTaskBtn" 
                     onClick={(e) => this.deleteTrip(trip.id)}>
                     x

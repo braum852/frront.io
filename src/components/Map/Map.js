@@ -223,7 +223,7 @@ import {
             <Text>Duration by CAR: {duration} </Text>
             <Text>Distance by FOOT: {distanceF} </Text>
             <Text>Duration by FOOT: {durationF} </Text>
-            <Text>Current Location:   
+            <Text>Current Location:  
             <IconButton
               aria-label='center back'
               icon={<FaLocationArrow />}

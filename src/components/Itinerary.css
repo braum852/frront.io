@@ -47,6 +47,7 @@ input.taskCheckbox + label.taskLabel {
 	color: black;
 }
 
+
 input.taskCheckbox:checked + label.taskLabel {
 	text-decoration: line-through;
 	color: #656565;
