@@ -76,7 +76,7 @@ class TripsContainer extends Component {
       <div>
         <div className="inputContainer">
           <input className="taskInput" type="text" 
-            placeholder="Enter a trip here.." maxLength="50"
+            placeholder="Enter a trip here.." maxLength="70"
             onKeyPress={this.createTrip}
             value={this.state.inputValue} onChange={this.handleChange} />
             <br/>

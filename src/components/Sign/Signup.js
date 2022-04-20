@@ -7,6 +7,8 @@ import { Typography } from '@mui/material';
 // import Card from '@mui/material/Card';
 // import CardContent from '@mui/material/CardContent';
 import './Signup.css'
+import LoginButton from './LoginButton';
+import Profile from './Profile';
 
 export default function Signup(props) {
   const [firstname, setFirstname] = useState('');
@@ -83,6 +85,7 @@ export default function Signup(props) {
 
   return (
     <div>
+      <Profile />
       {created ? (
         <Navigate replace to="/login" />
       ) : (
@@ -144,15 +147,13 @@ export default function Signup(props) {
             <br />
             <br />
             <div>
-              <Button variant="contained">
+              {/* <Button variant="contained">
                 Cancel
                   </Button>
-              <Button type="submit" variant="contained" color="primary">Submit</Button>
+              <Button type="submit" variant="contained" color="primary">Submit</Button> */}
+              <LoginButton />
             </div>
           </form>
-          {/* </CardContent>
-              </Card> */}
-              {/* <h1>Hello, our status: {props.loggedInStatus}</h1>;  */}
         </div>
       )}
       <br />

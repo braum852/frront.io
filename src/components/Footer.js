@@ -12,7 +12,7 @@ export default function Footer() {
             >
           <Container maxWidth="med">
             <Box textAlign="center" pt={{ xs: 5, sm: 10 }} pb={{ xs: 5, sm: 0 }}>
-            Travel Planner &reg; {new Date().getFullYear()}
+            Your Traveller &reg; {new Date().getFullYear()}
           </Box>
           </Container>
         </Box>

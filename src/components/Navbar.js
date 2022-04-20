@@ -10,8 +10,9 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from "react-router-dom"
+import LogoutButton from './Sign/LogoutButton';
 
-const pages = ['Home', 'Itinerary', 'Expenses', 'Login'];
+const pages = ['Home', 'Itinerary', 'Expenses'];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -107,7 +108,7 @@ const ResponsiveAppBar = () => {
               </Button>
             ))}
           </Box>
-          <Button color="secondary">Logout</Button>
+          <Button color="secondary"><LogoutButton/></Button>
         </Toolbar>
       </Container>
     </AppBar>

@@ -54,6 +54,10 @@ import {
   //   })
   // }
 
+
+
+  
+
   const center = { lat: -27.47031, lng: 153.01708 }
 
   function Map() {
@@ -73,6 +77,19 @@ import {
     
     const originRef = useRef()
     const destinationRef = useRef()
+
+    
+    // onClick={() => {
+    //   navigator.geolocation.getCurrentPosition(
+    //     (position) => {
+    //       map.setZoom(18.5)
+    //       map.panTo({
+    //         lat: position.coords.latitude,
+    //         lng: position.coords.longitude,
+    //       });
+    //     },
+    //   );
+    // }}
   
     if (!isLoaded) {
       return <SkeletonText />
@@ -206,15 +223,28 @@ import {
             <Text>Duration by CAR: {duration} </Text>
             <Text>Distance by FOOT: {distanceF} </Text>
             <Text>Duration by FOOT: {durationF} </Text>
+            <Text>Current Location:   
             <IconButton
               aria-label='center back'
               icon={<FaLocationArrow />}
               isRound
+              // onClick={() => {
+              //   map.panTo(center)
+              //   map.setZoom(15)
+              // }}
               onClick={() => {
-                map.panTo(center)
-                map.setZoom(15)
+                navigator.geolocation.getCurrentPosition(
+                  (position) => {
+                    map.setZoom(18.5)
+                    map.panTo({
+                      lat: position.coords.latitude,
+                      lng: position.coords.longitude,
+                    });
+                  },
+                );
               }}
             />
+            </Text>
           </HStack>
         </Box>
           <GoogleMap
