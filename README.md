@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
+Prerequisites
+The only dependency is NPM (comes together with Node).
+
+Installing
+Open a terminal at the project root and run npm install to install all dependencies.
+
 ## Available Scripts
 
 In the project directory, you can run:
