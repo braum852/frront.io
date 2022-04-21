@@ -78,6 +78,7 @@ input[placeholder] {
 	text-align: center;
 	font-family: Brush Script MT, Brush Script Std, cursive;
     color: fuchsia;
+	font-size: 200%;
 }
 
 .inputContainer {

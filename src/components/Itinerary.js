@@ -3,7 +3,6 @@ import Map from './Map/Map'
 import { ChakraProvider, theme } from '@chakra-ui/react'
 import TripsContainer from './Trips/TripsContainer'
 import './Itinerary.css'
-import Profile from './Sign/Profile';
 
 export default class Itinerary extends Component {
 	  
@@ -11,7 +10,6 @@ export default class Itinerary extends Component {
 		return (			
 			<div>
 			 <div className='welcome'>
-				<Profile />
 				</div>
 				<br/>
 				

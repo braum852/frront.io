@@ -2,7 +2,7 @@ import React, { createContext, useReducer } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 // The reducer - this is used to update the state, based on the action
-export const AppReducer = (state, action) => {
+const AppReducer = (state, action) => {
 	switch (action.type) {
 		case 'ADD_EXPENSE':
 			return {
@@ -34,6 +34,7 @@ const initialState = {
 		{ id: uuidv4(), name: 'Transportation', cost: 70 },
 		{ id: uuidv4(), name: 'Fuel', cost: 60 },
 		{ id: uuidv4(), name: 'Shopping', cost: 50 },
+		{ id: uuidv4(), name: 'Food', cost: 20 },
 	],
 };
 

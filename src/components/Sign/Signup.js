@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import React from 'react';
+// import { Navigate } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import { Typography } from '@mui/material';
+// import TextField from '@material-ui/core/TextField';
+// import Button from '@material-ui/core/Button';
+// import { Typography } from '@mui/material';
 // import Card from '@mui/material/Card';
 // import CardContent from '@mui/material/CardContent';
 import './Signup.css'
 import LoginButton from './LoginButton';
-import Profile from './Profile';
+// import Profile from './Profile';
 
 export default function Signup(props) {
-  const [firstname, setFirstname] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
-  const [created, setCreated] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  // const [firstname, setFirstname] = useState('');
+  // const [lastname, setLastname] = useState('');
+  // const [username, setUsername] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [created, setCreated] = useState(false);
+  // const [errorMessage, setErrorMessage] = useState('');
 
   const useStyles = makeStyles(theme => ({
     root: {
@@ -39,60 +39,59 @@ export default function Signup(props) {
 
   const classes = useStyles();
 
-  function createUser(event) {
-    event.preventDefault();
-    event.target.reset();
+  // function createUser(event) {
+  //   event.preventDefault();
+  //   event.target.reset();
 
-    let user = {
-      firstname,
-      lastname,
-      username,
-      email,
-      password
-    };
+  //   let user = {
+  //     firstname,
+  //     lastname,
+  //     username,
+  //     email,
+  //     password
+  //   };
 
-    fetch('http://localhost:3000/api/v1/users', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      },
-      body: JSON.stringify({
-        user:{
-          email: user.email,
-          username: user.username,
-          password: user.password,
-          firstname: user.firstname,
-          lastname: user.lastname
-        }
-      }),
-    },
-    { withCredentials: true }
-    )
-      .then((response) => response.json())
-      .then((response) => {
-        if (response.status === 'created') {
-          setCreated(true);
-          setErrorMessage('');
-        }
-      })
-      .catch((response) =>
-        setErrorMessage(
-          "Uh-oh! It didn't work...Make sure your server is running!"
-        )
-      );
-  }
+  //   fetch('http://localhost:3000/api/v1/users', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Accept': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       user:{
+  //         email: user.email,
+  //         username: user.username,
+  //         password: user.password,
+  //         firstname: user.firstname,
+  //         lastname: user.lastname
+  //       }
+  //     }),
+  //   },
+  //   { withCredentials: true }
+  //   )
+  //     .then((response) => response.json())
+  //     .then((response) => {
+  //       if (response.status === 'created') {
+  //         setCreated(true);
+  //         setErrorMessage('');
+  //       }
+  //     })
+  //     .catch((response) =>
+  //       setErrorMessage(
+  //         "Uh-oh! It didn't work...Make sure your server is running!"
+  //       )
+  //     );
+  // }
 
   return (
     <div>
-      <Profile />
-      {created ? (
-        <Navigate replace to="/login" />
-      ) : (
+      {/* <Profile /> */}
+      <br/>
+      <br/>
         <div>
-          <div className="please-log-in">
+          {/* <div className="please-log-in">
             <p>{errorMessage}</p>
-          </div>
+          </div> */}
           <h1 className="fancy">It's TIME... to TRAVELLER!</h1><br></br>
 						<div>
 						  {/* <i className={classes.root}>Whayt's on my bucket list? Everywhere...</i> */}
@@ -102,13 +101,18 @@ export default function Signup(props) {
 							  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
 							  dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
 							  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-							  anim id est laborum."</p>
-                        </div>
+							  anim id est laborum."
+
+                </p>
+            </div>
+            <div className={classes.root}>
+            <LoginButton />
+            </div>
         {/* <Card sx={{ minWidth: 200 }}>
           <CardContent className='CardContainer'> */}
-          <form className={classes.root} onSubmit={createUser}>
+          {/* <form className={classes.root} onSubmit={createUser}> */}
           <br></br>
-          <Typography variant="h4" className="fancy">Sign up here!</Typography>
+          {/* <Typography variant="h4" className="fancy">Sign up here!</Typography>
           <br/>
           <TextField
               type="text"
@@ -143,19 +147,14 @@ export default function Signup(props) {
               name="password"
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
-            />
+            /> */}
             <br />
             <br />
             <div>
-              {/* <Button variant="contained">
-                Cancel
-                  </Button>
-              <Button type="submit" variant="contained" color="primary">Submit</Button> */}
-              <LoginButton />
+              
             </div>
-          </form>
+          {/* </form> */}
         </div>
-      )}
       <br />
       <br />
     </div>

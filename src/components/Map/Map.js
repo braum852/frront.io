@@ -77,6 +77,8 @@ import {
     
     const originRef = useRef()
     const destinationRef = useRef()
+    //useRef returns a mutable ref object whose .current property is initialized to the passed argument (initialValue). 
+    //The returned object will persist for the full lifetime of the component.
 
     
     // onClick={() => {

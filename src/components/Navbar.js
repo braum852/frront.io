@@ -11,6 +11,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from "react-router-dom"
 import LogoutButton from './Sign/LogoutButton';
+import Profile from './Sign/Profile';
 
 const pages = ['Home', 'Itinerary', 'Expenses', 'Currency'];
 
@@ -88,7 +89,7 @@ const ResponsiveAppBar = () => {
             </Menu>
           </Box>
           <Typography
-            variant="h6"
+            variant="h1"
             noWrap
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
@@ -108,6 +109,7 @@ const ResponsiveAppBar = () => {
               </Button>
             ))}
           </Box>
+          <Profile/>
           <Button color="secondary"><LogoutButton/></Button>
         </Toolbar>
       </Container>
